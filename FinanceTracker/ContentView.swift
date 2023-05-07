@@ -7,21 +7,42 @@
 
 import SwiftUI
 
+// Main page
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world! jdawiojdsi")
+        NavigationView{
+            ScrollView{
+                VStack(alignment: .leading, spacing:24) {
+                    // Mark: Title
+                    Text("Overview")
+                        .font(.title2)
+                        .bold()
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+            }
+            .background(Color.background) //pulling background color from extention
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                // MARK: Notification Icon
+                ToolbarItem { // adding a notifcation bell
+                    Image(systemName: "bell.badge")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(Color.icon, .primary)
+                }
+            }
         }
-        .padding()
     }
 }
 
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group{
+            ContentView()
+            ContentView()
+                .preferredColorScheme(.dark) // Dark mode
+        }
     }
 }
