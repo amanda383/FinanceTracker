@@ -19,11 +19,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_track: View {
-    var body: some View {
-        Text("help")
-    }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
